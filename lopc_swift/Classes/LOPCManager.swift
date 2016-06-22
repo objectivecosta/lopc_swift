@@ -24,7 +24,7 @@ let IS_IPHONE_6P = (IS_IPHONE && SCREEN_MAX_LENGTH == 736.0)
 
 let __shared__Manager = LOPCManager()
 
-class LOPCManager {
+public class LOPCManager {
     
     private var deviceToken = ""
     private var hasSetDeviceToken = false
