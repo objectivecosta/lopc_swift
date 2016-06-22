@@ -1,0 +1,6 @@
+use_frameworks!
+target 'lopc_swift_Tests' do
+  pod 'lopc_swift', :path => '../'
+  
+  
+end
