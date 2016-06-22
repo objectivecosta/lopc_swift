@@ -29,17 +29,17 @@ public class LOPCManager {
     private var deviceToken = ""
     private var hasSetDeviceToken = false
     
-    var instanceURL = ""
-    var appId = ""
-    var appSecret = ""
+    public var instanceURL = ""
+    public var appId = ""
+    public var appSecret = ""
     
-    var devicePayload = Dictionary<String, String>()
+    public var devicePayload = Dictionary<String, String>()
     
-    class func shared() -> LOPCManager {
+    public class func shared() -> LOPCManager {
         return __shared__Manager
     }
     
-    func setDeviceToken(deviceToken: String) {
+    public func setDeviceToken(deviceToken: String) {
         if self.hasSetDeviceToken == true {
             print("Warning: trying to set deviceToken of LOPC after it has already been set.")
             return
@@ -49,7 +49,7 @@ public class LOPCManager {
         self.hasSetDeviceToken = true
     }
     
-    func updateServerData(callback: ((NSError?) -> Void)?) {
+    public func updateServerData(callback: ((NSError?) -> Void)?) {
         var request = URLRequest(url: URL(string: "http://\(self.instanceURL)/device?appId=\(self.appId)")!)
         request.httpMethod = "POST"
         request.addValue(self.appSecret, forHTTPHeaderField: "Secret")
