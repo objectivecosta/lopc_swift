@@ -1,0 +1,6 @@
+framework module lopc_swift {
+  umbrella header "lopc_swift-umbrella.h"
+
+  export *
+  module * { export * }
+}

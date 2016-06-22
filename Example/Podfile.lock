@@ -1,0 +1,16 @@
+PODS:
+  - lopc_swift (0.1.0)
+
+DEPENDENCIES:
+  - lopc_swift (from `../`)
+
+EXTERNAL SOURCES:
+  lopc_swift:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  lopc_swift: 3ab56a91e70358ea97c6e88b40da5be436631cc5
+
+PODFILE CHECKSUM: bfbb9309f42c2420b919b6723e60af478cca3b1f
+
+COCOAPODS: 1.0.1

@@ -1,0 +1,22 @@
+{
+  "name": "lopc_swift",
+  "version": "0.1.0",
+  "summary": "A short description of lopc_swift.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/<GITHUB_USERNAME>/lopc_swift",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Rafael Costa": "rafael@rafaelcosta.me"
+  },
+  "source": {
+    "git": "https://github.com/<GITHUB_USERNAME>/lopc_swift.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "lopc_swift/Classes/**/*"
+}
