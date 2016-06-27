@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'lopc_swift'
-  s.version          = '0.1.2'
+  s.version          = '0.1.4'
   s.summary          = 'A lopc SDK for Swift 3.'
 
 # This description is used to generate tags and improve search results.
