@@ -50,7 +50,7 @@ public class LOPCManager {
     }
     
     public func updateServerData(withCallback callback: ((NSError?) -> Void)?) {
-        var request = URLRequest(url: URL(string: "http://\(self.instanceURL)/device?appId=\(self.appId)")!)
+        var request = URLRequest(url: URL(string: "https://\(self.instanceURL)/device?appId=\(self.appId)")!)
         request.httpMethod = "POST"
         request.addValue(self.appSecret, forHTTPHeaderField: "Secret")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
