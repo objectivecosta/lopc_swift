@@ -8,12 +8,12 @@
 
 import UIKit
 
-let IS_IPAD = UIDevice.current().userInterfaceIdiom == .pad
-let IS_IPHONE = UIDevice.current().userInterfaceIdiom == .phone
-let IS_RETINA = UIScreen.main().scale >= 2.0
+let IS_IPAD = UIDevice.currentDevice().userInterfaceIdiom == .Pad
+let IS_IPHONE = UIDevice.currentDevice().userInterfaceIdiom == .Phone
+let IS_RETINA = UIScreen.mainScreen().scale >= 2.0
 
-let SCREEN_WIDTH = UIScreen.main().bounds.size.width
-let SCREEN_HEIGHT = UIScreen.main().bounds.size.height
+let SCREEN_WIDTH = UIScreen.mainScreen().bounds.size.width
+let SCREEN_HEIGHT = UIScreen.mainScreen().bounds.size.height
 let SCREEN_MAX_LENGTH = max(SCREEN_WIDTH, SCREEN_HEIGHT)
 let SCREEN_MIN_LENGTH = min(SCREEN_WIDTH, SCREEN_HEIGHT)
 
@@ -50,10 +50,10 @@ public class LOPCManager {
     }
     
     public func updateServerData(withCallback callback: ((NSError?) -> Void)?) {
-        var request = URLRequest(url: URL(string: "https://\(self.instanceURL)/device?appId=\(self.appId)")!)
-        request.httpMethod = "POST"
-        request.addValue(self.appSecret, forHTTPHeaderField: "Secret")
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        let request = NSMutableURLRequest(URL: NSURL(string: "https://\(self.instanceURL)/device?appId=\(self.appId)")!)
+        request.HTTPMethod = "POST"
+        request.setValue(self.appSecret, forHTTPHeaderField: "Secret")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         var deviceType = "UNKNOWN_IPHONEOS"
         
@@ -76,18 +76,18 @@ public class LOPCManager {
         
         let dictionary = [
             "deviceType"        : deviceType,
-            "deviceOS"          : UIDevice.current().systemName,
-            "deviceOSVersion"   : "" + UIDevice.current().systemVersion,
+            "deviceOS"          : UIDevice.currentDevice().systemName,
+            "deviceOSVersion"   : "" + UIDevice.currentDevice().systemVersion,
             "deviceToken"       : self.deviceToken,
             "devicePayload"     : self.devicePayload
         ]
         
         
-        let json = try! JSONSerialization.data(withJSONObject: dictionary, options: JSONSerialization.WritingOptions.prettyPrinted)
+        let json = try! NSJSONSerialization.dataWithJSONObject(dictionary, options: NSJSONWritingOptions.PrettyPrinted)
         
-        request.httpBody = json
+        request.HTTPBody = json
         
-        URLSession.shared().dataTask(with: request) { (data: Data?, response: URLResponse?, error: NSError?) in
+        NSURLSession.sharedSession().dataTaskWithRequest(request) { (data: NSData?, response: NSURLResponse?, error: NSError?) in
             if error != nil {
                 callback?(error!)
             } else {
