@@ -31,7 +31,7 @@ public class LOPCManager {
     
     public var instanceURL = ""
     public var appId = ""
-    public var appSecret = ""
+    public var appClientToken = ""
     
     public var devicePayload = Dictionary<String, String>()
     
@@ -52,7 +52,8 @@ public class LOPCManager {
     public func updateServerData(withCallback callback: ((NSError?) -> Void)?) {
         let request = NSMutableURLRequest(URL: NSURL(string: "https://\(self.instanceURL)/device?appId=\(self.appId)")!)
         request.HTTPMethod = "POST"
-        request.setValue(self.appSecret, forHTTPHeaderField: "Secret")
+        request.setValue("device", forHTTPHeaderField: "x-authorizzation-type")
+        request.setValue(self.appClientToken, forHTTPHeaderField: "x-app-client-token")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         var deviceType = "UNKNOWN_IPHONEOS"
