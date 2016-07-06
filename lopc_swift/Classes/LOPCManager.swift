@@ -52,7 +52,7 @@ public class LOPCManager {
     public func updateServerData(withCallback callback: ((NSError?) -> Void)?) {
         let request = NSMutableURLRequest(URL: NSURL(string: "https://\(self.instanceURL)/device?appId=\(self.appId)")!)
         request.HTTPMethod = "POST"
-        request.setValue("device", forHTTPHeaderField: "x-authorizzation-type")
+        request.setValue("device", forHTTPHeaderField: "x-authorization-type")
         request.setValue(self.appClientToken, forHTTPHeaderField: "x-app-client-token")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
